@@ -43,7 +43,7 @@ const DemandSlider = () => {
           <CloseIcon onClick={() => setOpenDrawer(!openDrawer)} className='cursor-pointer' />
         </div>
       </Drawer>
-      <button onClick={() => setOpenDrawer(!openDrawer)} className='absolute top-0 right-9 p-1 cursor-pointer text-sm bg-white dark:bg-gray-900 border border-t-0 dark:border-gray-600 rounded-b-sm hover:bg-gray-700 transition-all'>Change demand </button>
+      <button onClick={() => setOpenDrawer(!openDrawer)} className='absolute top-0 right-9 p-1 cursor-pointer text-sm bg-white dark:bg-gray-900 border border-t-0 dark:border-gray-600 rounded-b-sm hover:bg-gray-7zzz00 transition-all'>Change demand </button>
     </>
   )
 }

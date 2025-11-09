@@ -10,9 +10,9 @@ interface LayoutProps {
 const RootLayout = ({ children }:LayoutProps) => {
   return (
     <html lang="en" >
-      <body className="relative white text-gray-950 dark:bg-gray-950 dark:text-white p-9">
+      <body className=" white text-gray-950 dark:bg-gray-950 dark:text-white">
+        <main className="relative" >
           <DemandSlider/>
-        <main >
           {children}
           </main>
       </body>
