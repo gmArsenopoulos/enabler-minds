@@ -2,19 +2,29 @@
 import "./globals.css";
 import { ReactNode } from "react";
 import DemandSlider from "./components/DemandSlider";
+import { ThemeProvider as NextThemesProvider } from "next-themes"
+
 
 interface LayoutProps {
   children: ReactNode
 }
 
-const RootLayout = ({ children }:LayoutProps) => {
+const RootLayout = ({ children }: LayoutProps) => {
+
+
   return (
     <html lang="en" >
-      <body className=" white text-gray-950 dark:bg-gray-950 dark:text-white">
+      <body >
+        <NextThemesProvider
+          attribute="class"
+          defaultTheme="dark"
+        >
+
+        </NextThemesProvider>
         <main className="relative" >
-          <DemandSlider/>
+          <DemandSlider />
           {children}
-          </main>
+        </main>
       </body>
     </html>
   )

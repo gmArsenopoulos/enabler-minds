@@ -2,7 +2,7 @@ import logo from "../public/images/logo.avif"
 import Kpi from "./components/Kpi"
 import Graph from "./components/Graph"
 import OrdersTable from "./components/OrdersTable"
-import Tabs from "./components/Tabs"
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "../components/ui/tabs"
 
 const page = () => {
   return (
@@ -15,10 +15,14 @@ const page = () => {
         <Kpi title="Service level" value="95%" valueClassName="text-green-500" subtitle="Keep up the good work!" />
       </div>
       {/* <Tabs /> */}
-      <div className="grid grid-cols-2 justify-items-center items-center">
-      <Graph/>
-      <OrdersTable/>
-      </div>
+      <Tabs defaultValue="graph" className="w-full">
+        <TabsList >
+          <TabsTrigger value="graph">Graph overview</TabsTrigger>
+          <TabsTrigger value="order">Orders</TabsTrigger>
+        </TabsList>
+        <TabsContent value="graph"><Graph /></TabsContent>
+        <TabsContent value="order"><OrdersTable /></TabsContent>
+      </Tabs>
     </div>
   )
 }

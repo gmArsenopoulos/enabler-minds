@@ -1,29 +1,37 @@
 'use client'
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
-import Paper from '@mui/material/Paper';
 
 const OrdersTable = () => {
-    const columns: GridColDef[] = [
-        {
-            field: 'orderDate',
-            headerName: 'Ordered at',
-            type: 'date',
-            valueGetter: (value) => {
-                const date = new Date(value);
-                return date
-            },
-            valueFormatter: (value:Date) => {
-            if (!value) return '';
-            return value.toLocaleDateString('en-GB'); // European format: DD/MM/YYYY
-        }
+    // const columns: GridColDef[] = [
+    //     {
+    //         field: 'orderDate',
+    //         headerName: 'Order date',
+    //         type: 'date',
+    //         flex:1,
+    //         align:'center',headerAlign:'center',
+    //         valueGetter: (value) => {
+    //             const date = new Date(value);
+    //             return date
+    //         },
+    //         valueFormatter: (value:Date) => {
+    //         if (!value) return '';
+    //         return value.toLocaleDateString('en-GB');
+    //     }
             
-        },
-        { field: 'quantity', headerName: 'Quantity', type: 'number' },
-        { field: 'unitCost', headerName: 'Unit cost', type: 'number' },
-        { field: 'totalCost', headerName: 'Total cost', type: 'number' },
-        { field: 'status', headerName: 'Status', type: 'string' },
+    //     },
+    //     { field: 'quantity', headerName: 'Quantity', type: 'number',flex:1 ,align:'center',headerAlign:'center',},
+    //     { field: 'unitCost', headerName: 'Unit cost', type: 'number', flex:1,align:'center',headerAlign:'center', valueFormatter:(value)=>`${value}€` },
+    //     { field: 'totalCost', headerName: 'Total cost', type: 'number',flex:1,align:'center',headerAlign:'center', valueFormatter:(value)=>`${value}€` },
+    //     { field: 'status', headerName: 'Status', type: 'string', flex:1,align:'center',headerAlign:'center',renderCell:(params)=>{
+    //         const statusColors={
+    //             planned:'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
+    //             confirmed:'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
+    //             delivered:'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200'
+    //         }
 
-    ];
+    //         return <span className={`px-2 py-1 font-semibold border rounded-md ${statusColors[params.value as keyof typeof statusColors]}`}>{params.value}</span>
+    //     } },
+
+    // ];
 
     const rows = [
         {
@@ -112,18 +120,21 @@ const OrdersTable = () => {
         }
     ];
 
-    const paginationModel = { page: 0, pageSize: 5 };
+    const paginationModel = { page: 0, pageSize: 10 };
     return (
-        <Paper sx={{ width: '100%' }}>
-            <DataGrid
-                rows={rows}
-                columns={columns}
-                initialState={{ pagination: { paginationModel } }}
-                pageSizeOptions={[5, 10]}
-                sx={{ border: 0 }}
-                disableColumnResize ={true}
-            />
-        </Paper>
+        <></>
+            // <DataGrid
+            //     rows={rows}
+            //     columns={columns}
+            //     initialState={{ pagination: { paginationModel } }}
+            //     pageSizeOptions={[5, 10,15,20]}
+            //     sx={{ border: 1,width:'100%' }}
+            //     disableColumnResize
+            //     disableColumnFilter
+            //     disableAutosize
+            //     disableColumnMenu
+            //     disableRowSelectionOnClick
+            // />
     )
 }
 

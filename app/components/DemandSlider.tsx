@@ -1,9 +1,5 @@
 import { ChangeEvent, useState } from 'react';
 
-import Slider from '@mui/material/Slider';
-import Drawer from '@mui/material/Drawer';
-import CloseIcon from '@mui/icons-material/Close';
-
 const DemandSlider = () => {
   const [demand, setDemand] = useState(50);
 
@@ -16,7 +12,7 @@ const DemandSlider = () => {
 
   return (
     <>
-      <Drawer
+      {/* <Drawer
         anchor='top'
         open={openDrawer}
         onClose={() => setOpenDrawer(!openDrawer)}
@@ -42,8 +38,8 @@ const DemandSlider = () => {
           </div>
           <CloseIcon onClick={() => setOpenDrawer(!openDrawer)} className='cursor-pointer' />
         </div>
-      </Drawer>
-      <button onClick={() => setOpenDrawer(!openDrawer)} className='absolute top-0 right-9 p-1 cursor-pointer text-sm bg-white dark:bg-gray-900 border border-t-0 dark:border-gray-600 rounded-b-sm hover:bg-gray-7zzz00 transition-all'>Change demand </button>
+      </Drawer> */}
+      <button onClick={() => setOpenDrawer(!openDrawer)} className='absolute top-0 right-9 p-1 cursor-pointer text-sm bg-white dark:text-white dark:bg-gray-900 border border-t-0 dark:border-gray-600 rounded-b-sm hover:bg-gray-700 transition-all'>Change demand </button>
     </>
   )
 }
