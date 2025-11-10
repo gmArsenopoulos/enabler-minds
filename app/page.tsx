@@ -14,13 +14,16 @@ const page = () => {
         <Kpi title="Projected stockouts" value="2" valueClassName="text-red-500" subtitle="Months: November, December" />
         <Kpi title="Service level" value="95%" valueClassName="text-green-500" subtitle="Keep up the good work!" />
       </div>
-      {/* <Tabs /> */}
-      <Tabs defaultValue="graph" className="w-full">
-        <TabsList >
-          <TabsTrigger value="graph">Graph overview</TabsTrigger>
-          <TabsTrigger value="order">Orders</TabsTrigger>
+      <Tabs defaultValue="graph" className="w-full mt-5">
+        <TabsList>
+          <TabsTrigger value="graph" className="text-lg p-3">Graph overview</TabsTrigger>
+          <TabsTrigger value="order" className="text-lg p-3">Orders</TabsTrigger>
         </TabsList>
-        <TabsContent value="graph"><Graph /></TabsContent>
+        <TabsContent value="graph">
+          <div className="w-[60%] m-auto">
+            <Graph />
+          </div>
+        </TabsContent>
         <TabsContent value="order"><OrdersTable /></TabsContent>
       </Tabs>
     </div>

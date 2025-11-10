@@ -48,7 +48,7 @@ const Graph = ({ isAnimationActive = true }) => {
   ];
   return (
     <AreaChart
-      style={{ width: '60%', margin: 'auto', aspectRatio: 1.618 }}
+      style={{ width: '100%', aspectRatio: 1.618 }}
       responsive
       data={data}
       margin={{ top: 10, right: 0, left: 0, bottom: 0 }}
