@@ -1,46 +1,45 @@
-import { ChangeEvent, useState } from 'react';
+import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
+import {Slider} from '@/components/ui/slider'
+import { FormEventHandler, useState } from 'react';
+import { XIcon } from 'lucide-react';
+
 
 const DemandSlider = () => {
-  const [demand, setDemand] = useState(50);
+  const [demand, setDemand] = useState([50]);
 
-  const valueText = (value: number) => `${value}%`;
-
-  const onSliderChange = (e: Event, value: number) => setDemand(value);
-  const onInputChange = (e: ChangeEvent<HTMLInputElement>) => setDemand(+e.target.value);
-
-  const [openDrawer, setOpenDrawer] = useState(false);
+  const onSliderChange = (value:number[]) => setDemand(value);
 
   return (
-    <>
-      {/* <Drawer
-        anchor='top'
-        open={openDrawer}
-        onClose={() => setOpenDrawer(!openDrawer)}
-      >
-        <div className='relative flex gap-10 py-3 px-10 text-black dark:text-white items-center justify-center border-b dark:bg-gray-900  dark:border-gray-600'>
-          <h3 className='inline'>Demand</h3>
-          <Slider
-            onChange={onSliderChange}
-            aria-label="Demand"
-            defaultValue={50}
-            value={demand}
-            getAriaValueText={valueText}
-            valueLabelDisplay="off"
-            shiftStep={10}
-            step={1}
-            marks
-            min={-50}
-            max={100}
-          />
-          <div className='flex items-center p-2 dark:bg-gray-800 border border-gray-950 dark:border-gray-500 rounded-lg'>
-            <input onChange={onInputChange} type="number" name="demand" id="demand" value={demand} min={-50} max={100} className='text-center' />
-          <p>%</p>
-          </div>
-          <CloseIcon onClick={() => setOpenDrawer(!openDrawer)} className='cursor-pointer' />
-        </div>
-      </Drawer> */}
-      <button onClick={() => setOpenDrawer(!openDrawer)} className='absolute top-0 right-9 p-1 cursor-pointer text-sm bg-white dark:text-white dark:bg-gray-900 border border-t-0 dark:border-gray-600 rounded-b-sm hover:bg-gray-700 transition-all'>Change demand </button>
-    </>
+    
+      <Drawer>
+        <DrawerTrigger asChild>
+          <button className='bg-accent border border-t-0 ml-4 cursor-pointer p-2 rounded-b-lg fixed hover:scale-110 transition-all'>Change demand</button>
+        </DrawerTrigger>
+        <DrawerContent>
+          <DrawerHeader>
+            <DrawerClose asChild>
+                <XIcon className='cursor-pointer' />
+                {/* <Button variant="outline">Cancel</Button> */}
+              </DrawerClose>
+          <DrawerTitle>Change customer demand</DrawerTitle>
+          <DrawerDescription>Current demand percentage: {`${demand}%`}</DrawerDescription>
+          </DrawerHeader>
+            <div className='w-full flex justify-center items-center gap-10 pb-5 px-10 '>
+              <h3>Demand</h3>
+              <Slider
+              // onChange={onSliderChange}
+               onValueChange={onSliderChange}
+                defaultValue={demand}
+                aria-label="Demand"
+                step={1}
+                min={-50}
+                max={100}
+              />
+              
+            </div>
+        </DrawerContent>
+      </Drawer>
+    
   )
 }
 
