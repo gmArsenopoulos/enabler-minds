@@ -17,7 +17,8 @@ const RootLayout = ({ children }: LayoutProps) => {
       <body >
         <NextThemesProvider
           attribute="class"
-          defaultTheme="dark"
+          // defaultTheme="dark"
+          enableSystem
         >
 
         </NextThemesProvider>
