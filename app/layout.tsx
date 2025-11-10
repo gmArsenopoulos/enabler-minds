@@ -22,7 +22,7 @@ const RootLayout = ({ children }: LayoutProps) => {
         >
 
         </NextThemesProvider>
-        <main className="relative" >
+        <main className="relative max-w-[1920px] m-auto" >
           <DemandSlider />
           {children}
         </main>
