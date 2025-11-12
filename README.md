@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# ENABLERMINDS
 
-First, run the development server:
+This project is a proof of concept idea for enabler minds under the scope of the technical interview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Setup
 
-## Learn More
+After you clone the repository, run the following command in terminal at project root:
 
-To learn more about Next.js, take a look at the following resources:
+``npm install``
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+After that, you can run
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+``npm run dev``
 
-## Deploy on Vercel
+To run the project localy.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[Click here](https://enabler-minds-58zc583ou-giorgos-marios-arsenopoulos-projects.vercel.app/) to see a live demo at Vercel.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Design
+
+### Technology
+
+This app uses React v19.2 with Next.js using typescript as the main language.
+
+The usage of typescript and not just javascript is to have strong type variables and be more in control about the data stracture of the application
+
+Next.js was chosen as a default when installing React library
+
+To manage state in component scope the application is using the ``useState`` function from the react library and ``tanstack/react-query`` to share data with other components.
+
+### File stracture
+
+The project file stracture has all the key assets (components, functions, interfaces etc) to their specific folders for better order and searchability. The ui components that are extracted from external libraries, are stored outside the app component for better clearence
+
+### Interface
+
+The interface is mainly constructed with the usage of [shadcn](https://ui.shadcn.com/). The tailwind integration made it fast and reliable to include alongside with the components made by me
+## Challenges
+
+The main challenge was to find a library that will best work within application scope.
+
+At first, with [Material UI](https://mui.com/) everything was goind okay, but the theme configuration made it difficult to configure to my color scheme. After a bit more research, I found shadcn to resolve the theme configuration problem, plus integration with recharts to display the graph needed.
+
+After interface creation, with no data, I created a fake json database and served it with the help of [json server](https://www.npmjs.com/package/json-server) in order to simulate API integration with the help of `useEffect`. In this quest I found the **tanstack/react-query** as a good library to handle data and pass them from one component to another without the need of extra API calls. After finishing with that, I saw that vercel did not support my architecture with **json database** so I had to revert my solution to a local fetch from the json file.
+
+To make it happen in a seemless way, help functions where created in order to handle the data outside the component scope, so the main job of the component to be the display of data.
+## Improvements
+
+This demo application is capable of many more features that the ones displayed.
+
+Here is some improvements that can be done, given the time and resources:
+
+1. Add filters to the orders table
+2. Add more info about the order entity like who made the order 
+3. Add indicator at graph so the user knows what is the projected months
+4. Add a toggle regarding service level to specify to only include historic months
+5. Display the months that the stockout projection is going to happen
+6.Add a toggle for light / dark mode
