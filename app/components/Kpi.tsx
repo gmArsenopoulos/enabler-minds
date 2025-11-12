@@ -2,9 +2,9 @@ import { Card, CardContent } from "../../components/ui/card"
 
 interface KpiProps {
   title: string
-  value: string
+  value: string | number
   valueClassName?: string
-  subtitle?: string
+  subtitle?: any
 }
 
 const Kpi = ({ title, value, valueClassName, subtitle }: KpiProps) => {
@@ -12,12 +12,8 @@ const Kpi = ({ title, value, valueClassName, subtitle }: KpiProps) => {
     <Card>
       <CardContent >
         <h3 className='text-sm'>{title}</h3>
-        <p className={`${valueClassName} text-4xl mt-1 ${subtitle && 'mb-3'}`}>{value}</p>
-        {subtitle && (
-          <p>
-            {subtitle}
-          </p>
-        )}
+        <p className={`${valueClassName} text-3xl mt-1 ${subtitle && 'mb-3'}`}>{value}</p>
+        {subtitle}
       </CardContent>
     </Card>
   )

@@ -1,13 +1,5 @@
 
 {
-  "kpiMetrics": {
-    "totalOrdersValue": 134050,
-    "currentStockLevel": 10250,
-    "projectedStockouts": 3,
-    "serviceLevel": 75.0,
-    "lastUpdated": "2025-11-10T20:16:00Z"
-  },
-  
   "orders": [
   {
     "id": "ORD-1001",
@@ -67,25 +59,22 @@
   }
 ],
   
-  "stockData": [
-  { "month": "2025-01-01", "stockLevel": 1200, "demand": 950, "projected": false },
-  { "month": "2025-02-01", "stockLevel": 1150, "demand": 970, "projected": false },
-  { "month": "2025-03-01", "stockLevel": 1000, "demand": 1100, "projected": false },
-  { "month": "2025-04-01", "stockLevel": 950, "demand": 1050, "projected": false },
-  { "month": "2025-05-01", "stockLevel": 880, "demand": 1020, "projected": false },
-  { "month": "2025-06-01", "stockLevel": 820, "demand": 980, "projected": false },
-  { "month": "2025-07-01", "stockLevel": 780, "demand": 1000, "projected": false },
-  { "month": "2025-08-01", "stockLevel": 760, "demand": 1080, "projected": false },
-  { "month": "2025-09-01", "stockLevel": 740, "demand": 1150, "projected": true },
-  { "month": "2025-10-01", "stockLevel": 700, "demand": 1180, "projected": true },
-  { "month": "2025-11-01", "stockLevel": 650, "demand": 1200, "projected": true },
-  { "month": "2025-12-01", "stockLevel": 620, "demand": 1250, "projected": true }
-],
-  
-  "demandAdjustments": {
-    "currentAdjustment": 50,
-    "minAdjustment": -50,
-    "maxAdjustment": 100
-  }
+ "stockData": [
+  { "month": "2025-01-01", "stockLevel": 1540, "demand": 950, "projected": false },
+  { "month": "2025-02-01", "stockLevel": 1565, "demand": 970, "projected": false },
+  { "month": "2025-03-01", "stockLevel": 1680, "demand": 1100, "projected": false },
+  { "month": "2025-04-01", "stockLevel": 1720, "demand": 1050, "projected": false },
+  { "month": "2025-05-01", "stockLevel": 1685, "demand": 1020, "projected": false },
+  { "month": "2025-06-01", "stockLevel": 1670, "demand": 980, "projected": false },
+  { "month": "2025-07-01", "stockLevel": 1690, "demand": 1000, "projected": false },
+  { "month": "2025-08-01", "stockLevel": 1745, "demand": 1080, "projected": false },
+  { "month": "2025-09-01", "stockLevel": 1800, "demand": 1150, "projected": true },
+  { "month": "2025-10-01", "stockLevel": 1855, "demand": 1180, "projected": true },
+  { "month": "2025-11-01", "stockLevel": 1890, "demand": 1200, "projected": true },
+  { "month": "2025-12-01", "stockLevel": 1940, "demand": 1250, "projected": true }
+]
+
+
+
   
 }

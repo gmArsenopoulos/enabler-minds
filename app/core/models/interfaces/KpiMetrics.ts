@@ -1,7 +1,7 @@
 export interface KpiMetrics{
     totalOrdersValue:number;
     currentStockLevel:number;
-    projectedStockLevel:number;
+    projectedStockouts:number;
     serviceLevel:number;
     lastUpdated:string;
 }

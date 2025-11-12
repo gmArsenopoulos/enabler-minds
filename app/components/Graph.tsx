@@ -4,81 +4,51 @@ import { ChartConfig, ChartContainer, ChartLegend, ChartLegendContent, ChartTool
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useState } from 'react';
 import { Area, AreaChart, Bar, BarChart, CartesianGrid, Tooltip, XAxis, YAxis } from 'recharts';
+import { StockData } from '../core/models/interfaces/StockData';
 
-const Graph = () => {
+interface GraphProps {
+  stock: StockData[]
+}
+
+const Graph = ({ stock }: GraphProps) => {
+
+  const dates = () => {
+    const months = stock.map(s => new Date(s.month).getTime());
+    const minMonth = new Date(Math.min(...months));
+    const maxMonth = new Date(Math.max(...months));
+    return {
+      start: minMonth.toLocaleDateString('en-GB', { year: 'numeric', month: 'long' }),
+      end: maxMonth.toLocaleDateString('en-GB', { year: 'numeric', month: 'long' })
+    }
+  }
 
   const chartConfig = {
-    visitors: {
-      label: "Visitors",
+    untits: {
+      label: "Units",
     },
-    uv: {
-      label: "cool",
+    stockLevel: {
+      label: "Inventory stock",
       color: "var(--chart-1)",
     },
-    pv: {
-      label: "Mobile",
+    demand: {
+      label: "Customer demand",
       color: "var(--chart-2)",
     },
   } satisfies ChartConfig
 
-  const data = [
-    {
-      name: 'Page A',
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
-    },
-    {
-      name: 'Page B',
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
-    },
-    {
-      name: 'Page C',
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
-    },
-    {
-      name: 'Page D',
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
-    },
-    {
-      name: 'Page E',
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: 'Page F',
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-    {
-      name: 'Page G',
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
-    },
-  ];
-
 
   return (
-      <Card>
+    <Card>
       <CardHeader>
-        <CardTitle>Bar Chart - Stacked + Legend</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+        <CardTitle>Inventory stock vs Customer demand</CardTitle>
+        <CardDescription>{dates().start} - {dates().end}</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
-          <BarChart accessibilityLayer data={data}>
+          <BarChart accessibilityLayer data={stock}>
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="name"
+              dataKey="month"
               tickLine={false}
               tickMargin={10}
               axisLine={true}
@@ -86,15 +56,15 @@ const Graph = () => {
             />
             <YAxis />
             <ChartTooltip content={<ChartTooltipContent active={true} />} />
-            <ChartLegend content={<ChartLegendContent  />} />
+            <ChartLegend content={<ChartLegendContent />} />
             <Bar
-              dataKey="uv"
+              dataKey="stockLevel"
               stackId="a"
               fill="var(--chart-1)"
             />
             <Bar
-              dataKey="pv"
-              stackId="a"
+              dataKey="demand"
+              stackId="b"
               fill="var(--chart-2)"
               radius={[4, 4, 0, 0]}
             />
@@ -102,7 +72,7 @@ const Graph = () => {
         </ChartContainer>
       </CardContent>
     </Card>
-    )
-  }
+  )
+}
 
-  export default Graph
+export default Graph
